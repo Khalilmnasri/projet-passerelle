@@ -1,0 +1,283 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: Tahoma, Arial;
+}
+.container {
+  margin: 20px auto;
+  width: 1000px
+}
+.pendu {
+  display: flex;
+}
+hr {
+  border: 1px solid #EEE;
+}
+.jeu-info {
+  display: flex;
+}
+.jeu-info .jeu-nom {
+  flex: 1;
+}
+.jeu-info .categorie {
+  flex: 1;
+  text-align: right;
+}
+.jeu-info .categorie span {
+  text-transform: capitalize;
+  color: #E91E63;
+  font-weight: bold;
+}
+.pendu-motif {
+  flex: 1;
+  background-color: #F8F8F8;
+  padding: 20px;
+  height: 324px;
+}
+.pendu-motif .motif {
+  width: 60px;
+  height: 280px;
+  border-bottom: 4px solid #222;
+  position: relative;
+  margin: auto;
+  left: -60px;
+  display: none;
+}
+.pendu-motif .estrade {
+  position: absolute;
+  width: 4px;
+  background-color: #222;
+  height: 100%;
+  left: 50%;
+  margin-left: -2px;
+  display: none;
+}
+.pendu-motif .pendant {
+  display: none;
+}
+.pendu-motif .pendant:before {
+  content: '';
+  position: absolute;
+  height: 4px;
+  background-color: #222;
+  width: 100px;
+  left: 30px;
+  top: 15px;
+}
+.pendu-motif .pendant:after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 30px;
+  background-color: #222;
+  left: 130px;
+  top: 15px;
+}
+.pendu-motif .corde {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  position: absolute;
+  left: 95px;
+  top: 45px;
+  border: 4px dashed #222;
+  display: none;
+}
+.pendu-motif .homme .tête {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 4px solid #222;
+  position: absolute;
+  left: 105px;
+  top: 55px;
+  display: none;
+}
+.pendu-motif .homme .corps {
+  position: absolute;
+  background-color: #222;
+  width: 4px;
+  height: 110px;
+  top: 102px;
+  left: 130px;
+  display: none;
+}
+.pendu-motif .homme .mains {
+  display: none;
+}
+.pendu-motif .homme .mains:before {
+  left: 85px;
+  transform: rotate(30deg);
+}
+.pendu-motif .homme .mains:after {
+  left: 130px;
+  transform: rotate(-30deg);
+}
+.pendu-motif .homme .mains:before,
+.pendu-motif .homme .mains:after {
+  content: '';
+  width: 50px;
+  position: absolute;
+  height: 4px;
+  background-color: #222;
+  top: 140px;
+}
+.pendu-motif .homme .jambes {
+  display: none;
+}
+.pendu-motif .homme .jambes:before {
+  left: 85px;
+  transform: rotate(-30deg);
+}
+.pendu-motif .homme .jambes:after {
+  left: 130px;
+  transform: rotate(30deg);
+}
+.pendu-motif .homme .jambes:before,
+.pendu-motif .homme .jambes:after {
+  content: '';
+  width: 50px;
+  position: absolute;
+  height: 4px;
+  background-color: #222;
+  top: 220px;
+}
+.pendu-motif.faux-1 .motif {
+  display: block;
+}
+.pendu-motif.faux-2 .estrade {
+  display: block;
+}
+.pendu-motif.faux-3 .pendant {
+  display: block;
+}
+.pendu-motif.faux-4 .corde {
+  display: block;
+}
+.pendu-motif.faux-5 .tête {
+  display: block;
+}
+.pendu-motif.faux-6 .corps {
+  display: block;
+}
+.pendu-motif.faux-7 .mains {
+  display: block;
+}
+.pendu-motif.faux-8 .jambes {
+  display: block;
+}
+.lettres {
+  flex: 1;
+  padding: 15px;
+  text-align: center;
+}
+.lettres.fini {
+  pointer-events: none;
+}
+.lettres .lettre {
+  width: 55px;
+  height: 55px;
+  display: inline-block;
+  background-color: #2e2e2e;
+  color: #FFF;
+  font-size: 24px;
+  margin-right: 10px;
+  line-height: 55px;
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+.lettres .lettre.clicked {
+  background-color: #222;
+  opacity: .2;
+  pointer-events: none;
+}
+.lettres-proposé {
+  margin: 10px auto;
+  background-color: #F8F8F8;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  min-height: 104px;
+}
+.lettres-proposé span {
+  width: 60px;
+  height: 60px;
+  font-size: 24px;
+  margin-right: 10px;
+  text-align: center;
+  line-height: 60px;
+  text-transform: uppercase;
+  font-weight: bold;
+  background-color: #FDFDFD;
+  border-bottom: 3px solid #222;
+  transition: .3s;
+}
+.lettres-proposé span.avec-espace {
+  background: none;
+  border-bottom: none;
+  position: relative;
+}
+.lettres-proposé span.avec-espace:before {
+  content: '';
+  width: 20px;
+  height: 4px;
+  background-color: #222;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.popup-1 {
+  position: fixed;
+  background-color: #cb2222;
+  padding: 100px 20px;
+  width: 80%;
+  top: 10%;
+  left: 10%;
+  text-align: center;
+  font-size: 40px;
+  border: 1px solid #CCC;
+  color: #FFF;
+}
+
+.popup-2 {
+  position: fixed;
+  background-color: #2ec55e;
+  padding: 100px 20px;
+  width: 80%;
+  top: 10%;
+  left: 10%;
+  text-align: center;
+  font-size: 40px;
+  border: 1px solid #CCC;
+  color: #FFF;
+}
+
+@media all and (max-width: 1000px) {
+  .container {
+    width: 600px;
+  }
+
+  .pendu-motif {
+    height: 400px;
+    margin-top: 15px;
+}
+}
+
+@media all and (max-width: 600px) {
+  .container {
+    width: 100%;
+}
+
+.pendu {
+  display: flex;
+  margin-left: 26px;
+}
+.pendu-motif {
+  height: 510px;
+  margin-top: 15px;
+}
+}
